@@ -26,7 +26,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             OperatorSeeder::class,
             SpecializationSeeder::class,
-            OperatorSpecializationTableSeeder::class
+            OperatorSpecializationTableSeeder::class,
+            MessageSeeder::class
 
         ]);
     }
