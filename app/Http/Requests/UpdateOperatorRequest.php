@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class UpdateOperatorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,10 +22,7 @@ class PostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name" => ["required", "min:5", "max:50"],
-            "description" => ["required", "min:5", "max:300"],
-            "category_id" => ["nullable", "exists:categories,id"],
-            "tags" => ["exists:tags,id"],
+            //
         ];
     }
 }
