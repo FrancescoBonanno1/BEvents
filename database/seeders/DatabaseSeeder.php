@@ -28,7 +28,8 @@ class DatabaseSeeder extends Seeder
             SpecializationSeeder::class,
             OperatorSpecializationTableSeeder::class,
             MessageSeeder::class,
-            VoteSeeder::class
+            VoteSeeder::class,
+            ReviewSeeder::class
 
         ]);
     }

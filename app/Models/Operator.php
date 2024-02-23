@@ -21,4 +21,12 @@ class Operator extends Model
     return
     $this->hasMany(Message::class);
    }
+   public function reviews(){
+    return
+    $this->hasMany(Review::class);
+   }
+   public function sponsorships(){
+    return
+    $this->belongsToMany(Sponsorship::class);
+   }
 }
