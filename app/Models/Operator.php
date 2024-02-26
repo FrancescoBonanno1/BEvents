@@ -25,8 +25,5 @@ class Operator extends Model
     return
     $this->hasMany(Review::class);
    }
-   public function sponsorships(){
-    return
-    $this->belongsToMany(Sponsorship::class);
-   }
+   
 }
