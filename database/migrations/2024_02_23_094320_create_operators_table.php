@@ -21,7 +21,7 @@ return new class extends Migration
             $field->string("phone",20);
             $field->string("image");
             $field->string("address", 50);
-            $field->year("foundation_year");
+            $field->year("foundation_year")->nullable();
             $field->timestamps();
             
         });

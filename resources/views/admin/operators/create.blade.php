@@ -68,8 +68,8 @@
             </div>
             <div class="mb-3">
                 <label for="foundation_year" class="form-label">Inserisci data di nascita</label>
-                <input type="date" class="form-control @error('foundation_year') is-invalid @enderror" id="foundation_year"
-name="date" value="{{ old('foundation_year') }}">
+                <input type="year" class="form-control @error('foundation_year') is-invalid @enderror" id="foundation_year"
+name="foundation_year" value="{{ old('foundation_year') }}">
                 @error('foundation_year')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
