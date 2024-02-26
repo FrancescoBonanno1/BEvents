@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Operator;
 use App\Http\Requests\StoreOperatorRequest;
 use App\Http\Requests\UpdateOperatorRequest;
+use Illuminate\Support\Facades\Auth;
 
 class OperatorController extends Controller
 {
@@ -22,7 +23,7 @@ class OperatorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.operators.create');
     }
 
     /**
@@ -30,7 +31,13 @@ class OperatorController extends Controller
      */
     public function store(StoreOperatorRequest $request)
     {
-        //
+        $validate = $request->validated();
+        $new_operator= new Operator();
+        $new_operator ->fill($validate);
+        $new_operator['user_id']=Auth::id();
+        $new_operator->save();
+
+        return redirect()->route('homepage');
     }
 
     /**
