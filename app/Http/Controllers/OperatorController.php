@@ -13,7 +13,8 @@ class OperatorController extends Controller
      */
     public function index()
     {
-        //
+        $operators = Operator::all();
+        return view('layouts.Homepage',compact('operators'));
     }
 
     /**
