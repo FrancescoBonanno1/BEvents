@@ -20,16 +20,16 @@ return new class extends Migration
             $table->foreign('sponsorship_id')->references('id')->on('sponsorships');
 
             $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            $table->dateTime('end_date')->nullable();
 
             
             
         });
-        DB::table('sponsorships')
-        ->join('operator_sponsorship', 'sponsorships.id', '=', 'operator_sponsorship.sponsorship_id')
-        ->update([
-            'operator_sponsorship.end_date' => DB::raw('DATE_ADD(operator_sponsorship.start_date, INTERVAL sponsorships.duration HOUR)')
-        ]);
+        // DB::table('sponsorships')
+        // ->join('operator_sponsorship', 'sponsorships.id', '=', 'operator_sponsorship.sponsorship_id')
+        // ->update([
+        //     'operator_sponsorship.end_date' => DB::raw('DATE_ADD(operator_sponsorship.start_date, INTERVAL sponsorships.duration HOUR')
+        // ]);
     }
 
     /**
