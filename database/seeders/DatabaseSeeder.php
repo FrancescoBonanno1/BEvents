@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use OperatorSponsorshipSeeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -31,7 +31,9 @@ class DatabaseSeeder extends Seeder
             MessageSeeder::class,
             VoteSeeder::class,
             ReviewSeeder::class,
+            SponsorshipSeeder::class,
             OperatorSponsorshipSeeder::class
+
 
         ]);
     }

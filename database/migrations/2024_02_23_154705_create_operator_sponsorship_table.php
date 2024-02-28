@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('operator_sponsorship', function (Blueprint $table) {
+        Schema::create('operator_sponsorships', function (Blueprint $table) {
             $table->unsignedBigInteger('operator_id');
             $table->foreign('operator_id')->references('id')->on('operators');
 
@@ -21,9 +21,7 @@ return new class extends Migration
 
             $table->dateTime('start_date');
             $table->dateTime('end_date')->nullable();
-
-            
-            
+            $table->timestamps();
         });
         // DB::table('sponsorships')
         // ->join('operator_sponsorship', 'sponsorships.id', '=', 'operator_sponsorship.sponsorship_id')

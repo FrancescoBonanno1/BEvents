@@ -1,8 +1,10 @@
 <?php
 
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\OperatorSponsorship;
+use App\Models\Sponsorship;
 use Carbon\Carbon;
 
 class OperatorSponsorshipSeeder extends Seeder
@@ -22,7 +24,7 @@ class OperatorSponsorshipSeeder extends Seeder
         if ($operator1 && $sponsorship1) {
             // Calcola le date di inizio e fine con uno scarto di 24 ore
             $startDate1 = now();
-            $endDate1 = now()->addHours(24);
+            $endDate1 = now()->addHours($sponsorship1->duration);
 
             // Crea un nuovo record nella tabella ponte
             OperatorSponsorship::create([
@@ -43,7 +45,7 @@ class OperatorSponsorshipSeeder extends Seeder
         if ($operator2 && $sponsorship2) {
             // Calcola le date di inizio e fine con uno scarto di 48 ore
             $startDate2 = now();
-            $endDate2 = now()->addHours(48);
+            $endDate2 = now()->addHours($sponsorship2->duration);
 
             // Crea un nuovo record nella tabella ponte
             OperatorSponsorship::create([

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\OperatorSponsorship;
 use App\Http\Requests\StoreOperatorSponsorshipRequest;
 use App\Http\Requests\UpdateOperatorSponsorshipRequest;
-use App\Models\Sponsorship;
+
 
 class OperatorSponsorshipController extends Controller
 {
@@ -30,19 +30,19 @@ class OperatorSponsorshipController extends Controller
      */
     public function store(StoreOperatorSponsorshipRequest $request)
     {
-          
-    $operatorSponsorship = new OperatorSponsorship();
-    $operatorSponsorship->operator_id = 1; 
-    $operatorSponsorship->sponsorship_id = 1; 
-    $operatorSponsorship->start_date = now();
 
-    $sponsorship = Sponsorship::find(1); // Recupera la sponsorizzazione dal database
-    $operatorSponsorship->end_date = $operatorSponsorship->start_date->addHours($sponsorship->duration);
+        // $operatorSponsorship = new OperatorSponsorship();
+        // $operatorSponsorship->operator_id = 1; 
+        // $operatorSponsorship->sponsorship_id = 1; 
+        // $operatorSponsorship->start_date = now();
 
-    // Salva il record
-    $operatorSponsorship->save();
+        // $sponsorship = Sponsorship::find(1); // Recupera la sponsorizzazione dal database
+        // $operatorSponsorship->end_date = $operatorSponsorship->start_date->addHours($sponsorship->duration);
 
-    // Restituisci una risposta o reindirizza come necessario
+        // // Salva il record
+        // $operatorSponsorship->save();
+
+        // Restituisci una risposta o reindirizza come necessario
     }
 
     /**
