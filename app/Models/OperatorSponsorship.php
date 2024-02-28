@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class OperatorSponsorship extends Model
 {
@@ -19,7 +20,7 @@ class OperatorSponsorship extends Model
             $sponsorship = $operatorSponsorship->sponsorship;
 
             if ($sponsorship) {
-                $endDate = $operatorSponsorship->start_date->addDays($sponsorship->duration);
+                $endDate = $operatorSponsorship->start_date->addHours($sponsorship->duration);
                 $operatorSponsorship->end_date = $endDate;
             }
         });
