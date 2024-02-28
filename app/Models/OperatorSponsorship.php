@@ -9,7 +9,7 @@ class OperatorSponsorship extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['operator_id', 'sponsorship_id', 'start_date', 'end_date'];
+    /*protected $fillable = ['operator_id', 'sponsorship_id', 'start_date', 'end_date'];
 
     protected static function boot()
     {
@@ -23,7 +23,8 @@ class OperatorSponsorship extends Model
                 $operatorSponsorship->end_date = $endDate;
             }
         });
-    }
+    }*/
+    
     public function sponsorship()
     {
         return $this->belongsToMany(Sponsorship::class)->using(OperatorSponsorship::class);
