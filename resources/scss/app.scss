@@ -1,5 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 
+
 .navbar {
     height: 5rem;
     background-color: #222;
@@ -9,4 +10,6 @@
 
 .containerHome {
     background-color: red;
+    height: calc(100vh - 5rem);
+
 }
