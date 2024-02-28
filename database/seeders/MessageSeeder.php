@@ -137,7 +137,7 @@ class MessageSeeder extends Seeder
             
         ];
         foreach ($messages as $message) {
-            $newmessage= new Message();
+            $newmessage= new Message;
             $newmessage->operator_id=$message['operator_id'];
             $newmessage->text=$message['text'];
             $newmessage->user_email=$message['user_email'];
