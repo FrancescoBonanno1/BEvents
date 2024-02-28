@@ -15,8 +15,8 @@ class Specializationseeder extends Seeder
     {
         $specializations = [ 
             ['name' => 'Pianoforte', 'background_image' => '../img/specializzazioni/IMG_1189.jpg'],
-            ['name' => 'Chitarra', 'background_image' => '../img/specializzazioni/IMG_1188.jpg '],
-            ['name' => 'Violino', 'background_image' => ' ../img/specializzazioni/IMG_1190.jpg'],
+            ['name' => 'Chitarra', 'background_image' => '../img/specializzazioni/IMG_1190.jpg '],
+            ['name' => 'Violino', 'background_image' => ' ../img/specializzazioni/IMG_1191.jpg'],
             ['name' => 'Canto', 'background_image' => ' ../img/specializzazioni/IMG_1192.jpg'],
             ['name' => 'Batteria', 'background_image' => ' ../img/specializzazioni/IMG_1194.jpg'],
             ['name' => 'Musicista', 'background_image' => ' ../img/specializzazioni/IMG_1195.jpg'],
