@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Operator;
+use App\Models\Specialization;
 use App\Http\Requests\StoreOperatorRequest;
 use App\Http\Requests\UpdateOperatorRequest;
+use App\Models\Sponsorship;
 use Illuminate\Support\Facades\Auth;
 
 class OperatorController extends Controller
@@ -15,7 +17,9 @@ class OperatorController extends Controller
     public function index()
     {
         $operators = Operator::all();
-        return view('layouts.Homepage',compact('operators'));
+        $specializations = Specialization::all();
+        $sponsorships = Sponsorship::all();
+        return view('layouts.Homepage', compact('operators', 'specializations', 'sponsorships'));
     }
 
     /**
@@ -32,9 +36,9 @@ class OperatorController extends Controller
     public function store(StoreOperatorRequest $request)
     {
         $validate = $request->validated();
-        $new_operator= new Operator();
-        $new_operator ->fill($validate);
-        $new_operator['user_id']=Auth::id();
+        $new_operator = new Operator();
+        $new_operator->fill($validate);
+        $new_operator['user_id'] = Auth::id();
         $new_operator->save();
 
         return redirect()->route('homepage');

@@ -8,8 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Sponsorship extends Model
 {
     use HasFactory;
-    public function operators(){
-        return
-        $this->belongsToMany(Operator::class);
-       }
+    public function operators()
+    {
+        return $this->belongsToMany(Operator::class, 'operator_sponsorships');
+    }
+    public function operatorSponsorship()
+    {
+        return $this->hasOne(OperatorSponsorship::class);
+    }
 }

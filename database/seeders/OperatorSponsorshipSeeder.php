@@ -37,8 +37,8 @@ class OperatorSponsorshipSeeder extends Seeder
             $this->command->info('Operatore o Sponsorizzazione non trovati. Assicurati di aver eseguito i seeder di Operator e Sponsorship.');
         }
 
-        // Ottieni l'operatore con ID 1 e la sponsorizzazione con ID 2
-        $operator2 = \App\Models\Operator::find(1);
+        // Ottieni l'operatore con ID 2 e la sponsorizzazione con ID 2
+        $operator2 = \App\Models\Operator::find(2);
         $sponsorship2 = \App\Models\Sponsorship::find(2);
 
         // Verifica che entrambi esistano

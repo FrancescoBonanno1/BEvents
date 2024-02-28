@@ -10,6 +10,7 @@ class OperatorSponsorship extends Model
 {
     use HasFactory;
 
+
     protected $fillable = [
         'operator_id',
         'sponsorship_id',
