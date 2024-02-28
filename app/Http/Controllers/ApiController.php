@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\Operator;
+use App\models\Vote;
+use App\models\Review;
+
 
 class ApiController extends Controller
 {
@@ -12,10 +15,18 @@ class ApiController extends Controller
      */
     public function index()
     {
-        /* messaggi - voti -recensioni  */
-        $operators=Operator::all();
-        return response()->json($operators);
-
+        /* messaggi - voti - recensioni */
+        $operators = Operator::all();
+        $votes = Vote::all();
+        $reviews = Review::all();
+    
+        $responseData = [
+            'operators' => $operators,
+            'votes' => $votes,
+            'reviews' => $reviews,
+        ];
+    
+        return response()->json($responseData);
     }
 
     /**
