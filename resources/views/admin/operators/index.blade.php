@@ -20,7 +20,7 @@
                     @foreach ($operator->specializations as $specialization)
                     <p>Specialità :</p>
                     <p>{{ $specialization->name }}</p>
-                    <img src="__DIR__ .{{$specialization ->background_image}}" alt="img">
+                    <img src="{{$specialization ->background_image}}" alt="img">
                     @endforeach
                     @endif
                 </div>
