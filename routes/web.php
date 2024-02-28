@@ -30,8 +30,6 @@ Route::middleware(['auth'])
         // - il nome della rotta ->name("dashboard") diventa ->name("admin.dashboard")
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('operators', OperatorController::class);
-
-       
     });
 
 require __DIR__ . '/auth.php';
