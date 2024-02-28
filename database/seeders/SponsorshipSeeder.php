@@ -15,15 +15,15 @@ class SponsorshipSeeder extends Seeder
     {
         $sponsorships = [
             [
-                "duration" => 24,
+                "duration" => "24 hours",
                 "price" => 2.99
             ],
             [
-                "duration" => 72,
+                "duration" => "72 hours",
                 "price" => 5.99
             ],
             [
-                "duration" => 144,
+                "duration" => "144 hours",
                 "price" => 9.99
             ]
         ];

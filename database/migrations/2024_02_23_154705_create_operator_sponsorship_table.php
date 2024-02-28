@@ -12,7 +12,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('operator_sponsorship', function (Blueprint $table) {
+        Schema::create('operator_sponsorships', function (Blueprint $table) {
+            $table->id();
+
             $table->unsignedBigInteger('operator_id');
             $table->foreign('operator_id')->references('id')->on('operators');
 
@@ -20,10 +22,10 @@ return new class extends Migration
             $table->foreign('sponsorship_id')->references('id')->on('sponsorships');
 
             $table->dateTime('start_date');
+
             $table->dateTime('end_date')->nullable();
 
-            
-            
+            $table->timestamps();
         });
         // DB::table('sponsorships')
         // ->join('operator_sponsorship', 'sponsorships.id', '=', 'operator_sponsorship.sponsorship_id')
@@ -37,7 +39,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('operator_sponsorship');
+        Schema::table('operator_sponsorships', function (Blueprint $table)
+        {
+            $table->dropForeign('operator_sponsorships_sponsorship_id_foreign');
+            $table->dropColumn('sponsorship_id');
+        });
+        Schema::dropIfExists('operator_sponsorships');
     }
 };
 
