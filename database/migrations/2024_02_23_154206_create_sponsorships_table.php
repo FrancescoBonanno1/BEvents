@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('sponsorships', function (Blueprint $table) {
             $table->id();
-            $table->integer('duration');
+            $table->string('duration', 30);
             $table->decimal('price');
             $table->timestamps();
         });
