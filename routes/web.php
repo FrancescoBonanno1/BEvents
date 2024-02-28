@@ -8,7 +8,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/homepage', [OperatorController::class, 'index'])->name('homepage');
+Route::get('/dashboard', [OperatorController::class, 'index'])->name('dashboard');
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
 

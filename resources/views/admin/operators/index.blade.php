@@ -16,6 +16,13 @@
                     <p class="card-text">Descrizione: {{ $operator->description }}</p>
                     <p class="card-text">Prezzo Ingaggio: {{ $operator->engagement_price }}</p>
                     <p class="card-text">Data di nascita: {{ $operator->foundation_year }}</p>
+                    @if ($operator->specializations->isNotEmpty())
+                    @foreach ($operator->specializations as $specialization)
+                    <p>Specialità :</p>
+                    <p>{{ $specialization->name }}</p>
+                    <img src="__DIR__ .{{$specialization ->background_image}}" alt="img">
+                    @endforeach
+                    @endif
                 </div>
                 <div class="card-footer">
                     <a href="{{ route('admin.operators.edit', $operator->id) }}" class="btn btn-primary">Modifica</a>
@@ -27,6 +34,7 @@
                 </div>
             </div>
         </div>
+</div>
         @endforeach
     </div>
 </div>
