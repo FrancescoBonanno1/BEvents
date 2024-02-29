@@ -20,5 +20,4 @@
             </div>
         </div>
     </div>
-    <a href="{{ route('admin.operator-sponsorships.create') }}">Inserisci una sponsorizzazione</a>
 @endsection
