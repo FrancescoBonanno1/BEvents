@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Operator;
+use App\Models\Specialization;
 use App\Http\Requests\StoreOperatorRequest;
 use Illuminate\Http\Request;
-
 
 class OperatorController extends Controller
 {
@@ -24,20 +24,27 @@ class OperatorController extends Controller
      */
     public function create()
     {
-        return view('admin.operators.create');
+        $operators = Operator::all();
+        $specializzations = Specialization::all();
+        return view('admin.operators.create', compact('operators', 'specializzations'));
     }
+
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StoreOperatorRequest $request)
     {
-        $validati = $request->validated();
+        $validated = $request->validated();
 
         $newOperator = new Operator();
-        $newOperator->fill($validati);
+        $newOperator->fill($validated);
         $newOperator->save();
 
+       
+        if ($request->has('specializations')) {
+            $newOperator->specializations()->attach($request->input('specializations'));
+        }
 
         return redirect()->route("admin.operators.index");
     }
@@ -53,9 +60,12 @@ class OperatorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Operator $operator)
+    public function edit($id)
     {
-        return view('admin.operators.edit', compact('operator'));
+        $operator = Operator::findOrFail($id);
+        $specializzations = Specialization::all(); 
+        
+        return view('admin.operators.edit', compact('operator', 'specializzations'));
     }
 
     /**
@@ -77,8 +87,12 @@ class OperatorController extends Controller
 
         $operator->update($request->all());
 
+        // Aggiorna le specializzazioni associate
+        $operator->specializations()->sync($request->input('specializations', []));
+
         return redirect()->route('admin.operators.index')->with('success', ' aggiornato con successo.');
     }
+
     /**
      * Remove the specified resource from storage.
      */
