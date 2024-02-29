@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('operator_specialization', function (Blueprint $table) {
             $table->unsignedBigInteger('operator_id');
-            $table->foreign('operator_id')->references('id')->on('operators');
+            $table->foreign('operator_id')->references('id')->on('operators')->onDelete('cascade');
 
             $table->unsignedBigInteger('specialization_id');
             $table->foreign('specialization_id')->references('id')->on('specializations');

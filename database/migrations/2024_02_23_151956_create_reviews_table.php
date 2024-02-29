@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('operator_id');
-            $table->foreign('operator_id')->references('id')->on('operators');
+            $table->foreign('operator_id')->references('id')->on('operators')->onDelete('cascade');
             $table->unsignedBigInteger('vote_id');
             $table->foreign('vote_id')->references('id')->on('votes');
             $table->string('comment', 250);
