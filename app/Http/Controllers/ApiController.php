@@ -9,6 +9,7 @@ use App\Models\Review;
 use App\Models\Vote;
 use App\Models\Specialization;
 use App\Models\OperatorSponsorship;
+use App\Models\Sponsorship;
 
 class ApiController extends Controller
 {
@@ -23,6 +24,7 @@ class ApiController extends Controller
         $reviews = Review::all();
         $messages = Message::all();
         $specializations = Specialization::all();
+        $sponsorships = Sponsorship::all();
         $OperatorSponsorships = OperatorSponsorship::all();
 
     
@@ -31,6 +33,7 @@ class ApiController extends Controller
             'votes' => $votes,
             'reviews' => $reviews,
             'messages' => $messages,
+            'sponsorships'=>$sponsorships,
             'specialization' => $specializations,
             'OperatorSponsorships' => $OperatorSponsorships,
 
