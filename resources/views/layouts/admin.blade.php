@@ -29,7 +29,7 @@
         <div class="container-fluid vh-100">
             <div class="row h-100">
                 <header id="navbar">
-                    <img src="../img/logo img/Heavy planning logo.jpeg" alt="img">
+                    <img src="../img/logoimg/HeavyPlanningLogo.jpg" alt="img">
                     <a href="/"><i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Home</a>
                     <a href="{{ route('admin.operators.index') }}"><i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard</a>
                     <a href="{{ route('admin.operators.create') }}"><i class="fa-solid fa-plus fa-lg fa-fw"></i>Aggiungi operatore</a>
