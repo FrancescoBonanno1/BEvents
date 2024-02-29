@@ -30,7 +30,7 @@ class OperatorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store( StoreOperatorRequest $request)
+    public function store(StoreOperatorRequest $request)
     {
         $validati = $request->validated();
 
@@ -38,7 +38,7 @@ class OperatorController extends Controller
         $newOperator->fill($validati);
         $newOperator->save();
 
-        
+
         return redirect()->route("admin.operators.index");
     }
 
@@ -64,14 +64,15 @@ class OperatorController extends Controller
     public function update(Request $request, Operator $operator)
     {
         $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'phone' => 'required',
-            'engagement_price'=> 'required',
-            'address'=> 'required',
-            'foundation_year'=> 'required',
+            'name' => 'required|min:1|max:50',
+            'engagement_price' => 'required|numeric|min:0|max:50',
+            'description' => 'required|min:1|max:300',
+            'phone' => 'required|min:1|max:50',
+            'image' => 'required|min:1|max:50',
+            'address' => 'required|min:1|max:50',
+            'foundation_year' => 'required',
 
-            
+
         ]);
 
         $operator->update($request->all());
@@ -85,6 +86,6 @@ class OperatorController extends Controller
     {
         $operator->delete();
 
-        return redirect()->route('admin.operators.index') ->with('success', 'Operatore eliminato con successo.');
+        return redirect()->route('admin.operators.index')->with('success', 'Operatore eliminato con successo.');
     }
 }
