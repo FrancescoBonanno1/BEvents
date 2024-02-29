@@ -61,7 +61,7 @@
                                 </li>
                             @else
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('admin.operators.edit', $operator_id[0]->id) }}">
+                                    <a class="nav-link text-white" href="{{ route('admin.operators.edit', $operator[0]->id) }}">
                                         <i class="fa-solid fa-plus fa-lg fa-fw"></i> Modifica operatore
                                     </a>
                                 </li>
