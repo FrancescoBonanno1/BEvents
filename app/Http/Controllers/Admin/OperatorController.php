@@ -52,7 +52,7 @@ class OperatorController extends Controller
         $new_operator->address = $data["address"];
         $new_operator->foundation_year = $data["foundation_year"];
         $new_operator->save();
-        return redirect()->route("admin.operators.index");
+        return redirect()->route("admin.dashboard");
     }
 
     /**
@@ -89,7 +89,8 @@ class OperatorController extends Controller
 
         $operator->update($request->all());
 
-        return redirect()->route('admin.operators.index')->with('success', ' aggiornato con successo.');
+        /*return redirect()->route('admin.operators.index')->with('success', ' aggiornato con successo.');*/
+        return redirect()->route("admin.dashboard");
     }
     /**
      * Remove the specified resource from storage.
