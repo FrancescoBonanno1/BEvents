@@ -14,21 +14,21 @@ class Specializationseeder extends Seeder
     public function run(): void
     {
         $specializations = [ 
-            ['name' => 'Pianoforte', 'background_image' => 'https://www.bettermusic.com.au/media/catalog/product/p/-/p-225b_corner_angle_with_musicrest.jpg?optimize=high&fit=bounds&height=&width='],
-            ['name' => 'Chitarra', 'background_image' => 'https://www.bettermusic.com.au/media/catalog/product/p/-/p-225b_corner_angle_with_musicrest.jpg?optimize=high&fit=bounds&height=&width='],
-            ['name' => 'Violino', 'background_image' => 'https://www.bettermusic.com.au/media/catalog/product/p/-/p-225b_corner_angle_with_musicrest.jpg?optimize=high&fit=bounds&height=&width='],
-            ['name' => 'Canto', 'background_image' => 'https://www.bettermusic.com.au/media/catalog/product/p/-/p-225b_corner_angle_with_musicrest.jpg?optimize=high&fit=bounds&height=&width='],
-            ['name' => 'Batteria', 'background_image' => 'https://www.bettermusic.com.au/media/catalog/product/p/-/p-225b_corner_angle_with_musicrest.jpg?optimize=high&fit=bounds&height=&width='],
-            ['name' => 'Musicista', 'background_image' => 'https://www.bettermusic.com.au/media/catalog/product/p/-/p-225b_corner_angle_with_musicrest.jpg?optimize=high&fit=bounds&height=&width='],
-            ['name' => 'Fonico', 'background_image' => 'https://www.bettermusic.com.au/media/catalog/product/p/-/p-225b_corner_angle_with_musicrest.jpg?optimize=high&fit=bounds&height=&width='],
-            ['name' => 'Produttore', 'background_image' => 'https://www.bettermusic.com.au/media/catalog/product/p/-/p-225b_corner_angle_with_musicrest.jpg?optimize=high&fit=bounds&height=&width='],
-            ['name' => 'Tecnico del suono', 'background_image' => 'https://www.bettermusic.com.au/media/catalog/product/p/-/p-225b_corner_angle_with_musicrest.jpg?optimize=high&fit=bounds&height=&width='],
-            ['name' => 'Tecnico Luci', 'background_image' => 'https://www.bettermusic.com.au/media/catalog/product/p/-/p-225b_corner_angle_with_musicrest.jpg?optimize=high&fit=bounds&height=&width='],
-            ['name' => 'Tastierista', 'background_image' => 'https://www.bettermusic.com.au/media/catalog/product/p/-/p-225b_corner_angle_with_musicrest.jpg?optimize=high&fit=bounds&height=&width='],
-            ['name' => 'Violoncellista', 'background_image' => 'https://www.bettermusic.com.au/media/catalog/product/p/-/p-225b_corner_angle_with_musicrest.jpg?optimize=high&fit=bounds&height=&width='],
-            ['name' => 'Saxofonista', 'background_image' => 'https://www.bettermusic.com.au/media/catalog/product/p/-/p-225b_corner_angle_with_musicrest.jpg?optimize=high&fit=bounds&height=&width='],
-            ['name' => 'Trombettista', 'background_image' => 'https://www.bettermusic.com.au/media/catalog/product/p/-/p-225b_corner_angle_with_musicrest.jpg?optimize=high&fit=bounds&height=&width='],
-            ['name' => 'DJ', 'background_image' => 'https://www.bettermusic.com.au/media/catalog/product/p/-/p-225b_corner_angle_with_musicrest.jpg?optimize=high&fit=bounds&height=&width='],
+            ['name' => 'Pianoforte', 'background_image' => '../img/specializzazioni/IMG_1189.jpg'],
+            ['name' => 'Chitarra', 'background_image' => '../img/specializzazioni/IMG_1190.jpg '],
+            ['name' => 'Violino', 'background_image' => ' ../img/specializzazioni/IMG_1191.jpg'],
+            ['name' => 'Canto', 'background_image' => ' ../img/specializzazioni/IMG_1192.jpg'],
+            ['name' => 'Batteria', 'background_image' => ' ../img/specializzazioni/IMG_1194.jpg'],
+            ['name' => 'Musicista', 'background_image' => ' ../img/specializzazioni/IMG_1195.jpg'],
+            ['name' => 'Fonico', 'background_image' => ' ../img/specializzazioni/IMG_1196.jpg'],
+            ['name' => 'Produttore', 'background_image' => ' ../img/specializzazioni/IMG_1197.jpg'],
+            ['name' => 'Tecnico del suono', 'background_image' => ' ../img/specializzazioni/IMG_1198.jpg'],
+            ['name' => 'Tecnico Luci', 'background_image' => ' ../img/specializzazioni/IMG_1199.jpg'],
+            ['name' => 'Tastierista', 'background_image' => ' ../img/specializzazioni/IMG_1200.jpg'],
+            ['name' => 'Violoncellista', 'background_image' => ' ../img/specializzazioni/IMG_1201.jpg'],
+            ['name' => 'Saxofonista', 'background_image' => ' ../img/specializzazioni/IMG_1202.jpg'],
+            ['name' => 'Trombettista', 'background_image' => ' ../img/specializzazioni/IMG_1203.jpg'],
+            ['name' => 'DJ', 'background_image' => ' ../img/specializzazioni/IMG_1206.jpg'],
             
         ];
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Operator;
 use App\Http\Requests\StoreOperatorRequest;
 use App\Http\Requests\UpdateOperatorRequest;
+use App\Models\Specialization;
 use Illuminate\Support\Facades\Auth;
 
 class OperatorController extends Controller
@@ -15,7 +16,11 @@ class OperatorController extends Controller
     public function index()
     {
         $operators = Operator::all();
-        return view('layouts.Homepage',compact('operators'));
+        $specializations = Specialization::all();
+        return view('layouts.Homepage',compact('operators', 'specializations'));
+       
+        
+
     }
 
     /**
