@@ -25,7 +25,7 @@ class ApiController extends Controller
         $messages = Message::all();
         $specializations = Specialization::all();
         $sponsorships = Sponsorship::all();
-        $OperatorSponsorships = OperatorSponsorship::all();
+        $operator_sponsorships = OperatorSponsorship::all();
 
     
         $responseData = [
@@ -35,7 +35,7 @@ class ApiController extends Controller
             'messages' => $messages,
             'sponsorships'=>$sponsorships,
             'specialization' => $specializations,
-            'OperatorSponsorships' => $OperatorSponsorships,
+            'operator_sponsorships' => $operator_sponsorships,
 
         ];
     
