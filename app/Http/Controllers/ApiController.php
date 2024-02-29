@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\Operator;
-use App\models\Vote;
-use App\models\Review;
-use App\models\OperatorSponsorship;
-
-
+use App\Models\Message;
+use App\Models\Review;
+use App\Models\Vote;
+use App\Models\Specialization;
+use App\Models\OperatorSponsorship;
 
 class ApiController extends Controller
 {
@@ -21,6 +21,8 @@ class ApiController extends Controller
         $operators = Operator::all();
         $votes = Vote::all();
         $reviews = Review::all();
+        $messages = Message::all();
+        $specializations = Specialization::all();
         $OperatorSponsorships = OperatorSponsorship::all();
 
     
@@ -28,6 +30,8 @@ class ApiController extends Controller
             'operators' => $operators,
             'votes' => $votes,
             'reviews' => $reviews,
+            'messages' => $messages,
+            'specialization' => $specializations,
             'OperatorSponsorships' => $OperatorSponsorships,
 
         ];
