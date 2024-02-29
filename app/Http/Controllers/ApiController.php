@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\models\Operator;
 use App\models\Vote;
 use App\models\Review;
+use App\models\OperatorSponsorship;
+
 
 
 class ApiController extends Controller
@@ -19,11 +21,15 @@ class ApiController extends Controller
         $operators = Operator::all();
         $votes = Vote::all();
         $reviews = Review::all();
+        $OperatorSponsorships = OperatorSponsorship::all();
+
     
         $responseData = [
             'operators' => $operators,
             'votes' => $votes,
             'reviews' => $reviews,
+            'OperatorSponsorships' => $OperatorSponsorships,
+
         ];
     
         return response()->json($responseData);
