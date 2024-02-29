@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Operator;
 use App\Http\Requests\StoreOperatorRequest;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class OperatorController extends Controller
 {
@@ -32,13 +32,26 @@ class OperatorController extends Controller
      */
     public function store( StoreOperatorRequest $request)
     {
-        $validati = $request->validated();
+        /*$validati = $request->validated();
 
         $newOperator = new Operator();
         $newOperator->fill($validati);
         $newOperator->save();
 
         
+        return redirect()->route("admin.operators.index");*/
+
+        $data = $request->all();
+        $new_operator = new Operator();
+        $new_operator->user_id = Auth::user()->id;
+        $new_operator->name = $data["name"];
+        $new_operator->engagement_price = $data["engagement_price"];
+        $new_operator->description = $data["description"];
+        $new_operator->phone = $data["phone"];
+        $new_operator->image = $data["image"];
+        $new_operator->address = $data["address"];
+        $new_operator->foundation_year = $data["foundation_year"];
+        $new_operator->save();
         return redirect()->route("admin.operators.index");
     }
 

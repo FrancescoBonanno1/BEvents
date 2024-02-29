@@ -36,13 +36,13 @@ class OperatorController extends Controller
      */
     public function store(StoreOperatorRequest $request)
     {
-        $validate = $request->validated();
+        /*$validate = $request->validated();
         $new_operator= new Operator();
         $new_operator ->fill($validate);
         $new_operator['user_id']=Auth::id();
         $new_operator->save();
 
-        return redirect()->route('homepage');
+        return redirect()->route('homepage');*/
     }
 
     /**
