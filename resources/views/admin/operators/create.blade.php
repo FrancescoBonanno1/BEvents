@@ -1,3 +1,6 @@
+@extends('layouts.admin')
+
+@section('content')
 <div class="container-fluid mt-4">
     <div class="row justify-content-center">
         <h2>Nuovo Operatore</h2>
@@ -75,6 +78,7 @@ name="foundation_year" value="{{ old('foundation_year') }}">
         </form>
     </div>
 </div>
+@endsection
 
 {{-- ID
  nome
