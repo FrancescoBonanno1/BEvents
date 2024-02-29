@@ -22,13 +22,13 @@ class StoreOperatorRequest extends FormRequest
     public function rules(): array
     {
         return [
-        'name'=>'required|min:1|max:50',
-        'engagement_price'=>'required|min:1|max:50',
-        'description'=>'required|min:1|max:300',
-        'phone'=>'required|min:1|max:50',
-        'image'=>'required|min:1|max:50',
-        'address'=>'required|min:1|max:50',
-        'foundation_year',
+            'name' => 'required|min:1|max:50',
+            'engagement_price' => 'required|numeric|min:0|max:50',
+            'description' => 'required|min:1|max:300',
+            'phone' => 'required|min:1|max:50',
+            'image' => 'required|min:1|max:50',
+            'address' => 'required|min:1|max:50',
+            'foundation_year' => 'required',
         ];
     }
 }
