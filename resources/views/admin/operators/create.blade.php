@@ -58,6 +58,23 @@
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+
+            <div class="mb-3">
+                <label class="form-label">Seleziona una o più specializzazioni</label>
+                @foreach ($specializzations as $specialization)
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="specializations[]" id="specialization_{{ $specialization->id }}" value="{{ $specialization->id }}">
+                        <label class="form-check-label" for="specialization_{{ $specialization->id }}">
+                            {{ $specialization->name }}
+                        </label>
+                    </div>
+                @endforeach
+            </div>
+            
+            
+            
+            
+            
             <div class="mb-3">
                 <label for="engagement_price" class="form-label">Inserisci prezzo dell'ingaggio</label>
                 <input type="decimal" class="form-control @error('engagement_price') is-invalid @enderror" id="engagement_price" name="engagement_price"
