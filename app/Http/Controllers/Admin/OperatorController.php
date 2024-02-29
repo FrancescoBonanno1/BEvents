@@ -7,6 +7,7 @@ use App\Models\Operator;
 use App\Http\Requests\StoreOperatorRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OperatorController extends Controller
 {
@@ -24,7 +25,15 @@ class OperatorController extends Controller
      */
     public function create()
     {
-        return view('admin.operators.create');
+        $user_id = Auth::user()->id;
+        $how_much_operator = DB::table('operators')->where('user_id', $user_id)->count();
+        $there_is_operator = false;
+        if($how_much_operator == 0){
+            $there_is_operator = false;
+        }else{
+            $there_is_operator = true;
+        }
+        return view('admin.operators.create', compact("there_is_operator"));
     }
 
     /**
@@ -68,7 +77,16 @@ class OperatorController extends Controller
      */
     public function edit(Operator $operator)
     {
-        return view('admin.operators.edit', compact('operator'));
+        $user_id = Auth::user()->id;
+        $how_much_operator = DB::table('operators')->where('user_id', $user_id)->count();
+        $operator_id = DB::table('operators')->select("id")->where('user_id', $user_id)->get();
+        $there_is_operator = false;
+        if($how_much_operator == 0){
+            $there_is_operator = false;
+        }else{
+            $there_is_operator = true;
+        }
+        return view('admin.operators.edit', compact('operator', "there_is_operator", "operator_id"));
     }
 
     /**
