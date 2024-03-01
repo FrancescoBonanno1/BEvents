@@ -33,6 +33,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('operators', AdminOperatorController::class);
         Route::resource("operator-sponsorships", OperatorSponsorshipsController::class);
+        
+
 
     // Rotte per la gestione degli operatori
     Route::get('/operators', [AdminOperatorController::class, 'index'])->name('operators.index');
@@ -41,6 +43,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::get('/operators/{operator}/edit', [AdminOperatorController::class, 'edit'])->name('operators.edit');
     Route::put('/operators/{operator}', [AdminOperatorController::class, 'update'])->name('operators.update');
     Route::delete('/operators/{operator}', [AdminOperatorController::class, 'destroy'])->name('operators.destroy');
+    Route::get('/operators/{operator}', [AdminOperatorController::class, 'show'])->name('operators.show');
+
 });
 
 require __DIR__ . '/auth.php';
