@@ -52,7 +52,21 @@
                     </form>
                     
                 </header>
-                {{-- <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
+                
+                
+                <main>
+                    @yield('content')
+                </main>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+
+{{-- <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
                 
@@ -95,14 +109,3 @@
                 
                     </div>
                 </nav> --}}
-                
-                <main>
-                    @yield('content')
-                </main>
-            </div>
-        </div>
-
-    </div>
-</body>
-
-</html>
