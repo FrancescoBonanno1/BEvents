@@ -23,7 +23,7 @@ class StoreOperatorRequest extends FormRequest
     {
         return [
             'name' => 'required|min:1|max:50',
-            'engagement_price' => 'required|numeric|min:0|max:50',
+            'engagement_price' => 'required|numeric|min:0',
             'description' => 'required|min:1|max:300',
             'phone' => 'required|min:1|max:50',
             'image' => 'required|min:1|max:50',

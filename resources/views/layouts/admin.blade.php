@@ -31,13 +31,16 @@
                 <header id="navbar">
                     <img src="../img/logoimg/HeavyPlanningLogo.jpg" alt="img">
                     <a href="/"><i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Home</a>
-                    <a href="{{ route('admin.operators.index') }}"><i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard</a>
+                    <a href="{{ route('admin.operators.index') }}"><i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Homepage</a>
                     <a href="{{ route('admin.operators.create') }}"><i class="fa-solid fa-plus fa-lg fa-fw"></i>Aggiungi operatore</a>
-                    <a href=""></a>
-                    <a href="{{ route('logout') }}"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="fa-solid fa-sign-out-alt fa-lg fa-fw"></i> {{ __('Logout') }}
-                    </a>
+                    @if(auth()->user()->operator)
+                        <a href="{{ route('admin.operators.show', auth()->user()->operator->id) }}">
+                            <i class="fa-solid fa-user fa-lg fa-fw"></i> Mio operatore
+                        </a>
+                    @endif
+
+                    
+                    
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                     </form>
