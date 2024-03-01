@@ -9,6 +9,7 @@
         @foreach ($operators as $operator)
         <div class="col-3">
             <div class="card">
+                <img class="img" src="{{$operator ->image}}" alt="img">
                 <div class="card-header">{{ $operator->name }}</div>
                 <div class="card-body">
                     <p class="card-text">Telefono: {{ $operator->phone }}</p>

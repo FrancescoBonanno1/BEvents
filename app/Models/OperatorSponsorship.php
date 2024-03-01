@@ -9,21 +9,6 @@ class OperatorSponsorship extends Model
 {
     use HasFactory;
 
-    /*protected $fillable = ['operator_id', 'sponsorship_id', 'start_date', 'end_date'];
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::saving(function ($operatorSponsorship) {
-            $sponsorship = $operatorSponsorship->sponsorship;
-
-            if ($sponsorship) {
-                $endDate = $operatorSponsorship->start_date->addDays($sponsorship->duration);
-                $operatorSponsorship->end_date = $endDate;
-            }
-        });
-    }*/
     
     public function sponsorship()
     {

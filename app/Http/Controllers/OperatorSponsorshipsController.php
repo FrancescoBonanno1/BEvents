@@ -33,18 +33,7 @@ class OperatorSponsorshipsController extends Controller
     public function store(StoreOperatorSponsorshipRequest $request)
     {
           
-    /*$operatorSponsorship = new OperatorSponsorship();
-    $operatorSponsorship->operator_id = 1; 
-    $operatorSponsorship->sponsorship_id = 1; 
-    $operatorSponsorship->start_date = now();
 
-    $sponsorship = Sponsorship::find(1); // Recupera la sponsorizzazione dal database
-    $operatorSponsorship->end_date = $operatorSponsorship->start_date->addHours($sponsorship->duration);
-
-    // Salva il record
-    $operatorSponsorship->save();
-
-    // Restituisci una risposta o reindirizza come necessario*/
 
         date_default_timezone_set('Europe/Rome');
 
