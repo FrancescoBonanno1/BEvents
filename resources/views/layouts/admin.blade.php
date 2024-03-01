@@ -32,12 +32,18 @@
                     <img src="../img/logoimg/HeavyPlanningLogo.jpg" alt="img">
                     <a href="/"><i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Home</a>
                     <a href="{{ route('admin.operators.index') }}"><i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Homepage</a>
-                    <a href="{{ route('admin.operators.create') }}"><i class="fa-solid fa-plus fa-lg fa-fw"></i>Aggiungi operatore</a>
                     @if(auth()->user()->operator)
                         <a href="{{ route('admin.operators.show', auth()->user()->operator->id) }}">
-                            <i class="fa-solid fa-user fa-lg fa-fw"></i> Mio operatore
+                            <i class="fa-solid fa-user fa-lg fa-fw"></i> mio Profilo 
                         </a>
+                    @else
+                        @if(!session('operatorAdded'))
+                            <a href="{{ route('admin.operators.create') }}">
+                                <i class="fa-solid fa-plus fa-lg fa-fw"></i> Crea il tuo profilo
+                            </a>
+                        @endif
                     @endif
+
 
                     
                     
