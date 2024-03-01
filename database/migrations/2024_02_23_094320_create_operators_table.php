@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('operators', function (Blueprint $field) {
             $field->id();
-            $field->unsignedBigInteger("user_id")->nullable();
+            $field->unsignedBigInteger("user_id")->nullable()->unique();
             $field->foreign("user_id")->references("id")->on("users")->nullOnDelete();
             $field->string ("name", 20);
             $field->decimal("engagement_price")->nullable();
