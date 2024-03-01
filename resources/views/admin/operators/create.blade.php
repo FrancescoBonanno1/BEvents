@@ -4,14 +4,10 @@
 <div class="container-fluid mt-4">
     <div class="row justify-content-center">
         <h2>Nuovo Operatore</h2>
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
         @endif
     </div>
     <div class="row">
