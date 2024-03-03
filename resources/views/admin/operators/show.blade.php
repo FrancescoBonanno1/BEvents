@@ -19,7 +19,7 @@
                     @if ($operator->specializations->isNotEmpty())
                         @foreach ($operator->specializations as $specialization)
                             <p>{{ $specialization->name }}</p>
-                            <img class="img" src="../{{ $specialization->background_image }}" alt="img">
+                            <img class="img" src="../../img/specializzazioni/{{ $specialization->background_image }}" alt="img">
                         @endforeach
                     @endif
                 </div>
