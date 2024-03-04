@@ -19,7 +19,9 @@ return new class extends Migration
             $field->decimal("engagement_price")->nullable();
             $field->text("description");
             $field->string("phone",20);
-            $field->string("image");
+            $field->text('filename')->nullable();
+            $field->text('original_name')->nullable();
+            $field->text('file_path')->nullable();
             $field->string("address", 50);
             $field->year("foundation_year")->nullable();
             $field->timestamps();
