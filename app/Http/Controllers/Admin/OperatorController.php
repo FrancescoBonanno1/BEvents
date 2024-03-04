@@ -117,7 +117,6 @@ class OperatorController extends Controller
             'description' => 'required|min:1|max:300',
             'phone' => 'required|min:1|max:50',
             "file_upload" => "mimes:jpg,png|max:2048",
-            "prova",
             'address' => 'required|min:1|max:50',
             'foundation_year' => 'required',
         ]);
