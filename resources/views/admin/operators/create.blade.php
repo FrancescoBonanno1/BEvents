@@ -11,7 +11,7 @@
         @endif
     </div>
     <div class="row">
-        <form action="{{ route('admin.operators.store') }}" method="POST">
+        <form action="{{ route('admin.operators.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
            
             <div class="mb-3">
@@ -31,10 +31,10 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="image" class="form-label">Inserisci Immagine</label>
-                <input type="text" class="form-control @error('image') is-invalid @enderror" id="image" name="image"
-                    value="{{ old('image') }}">
-                @error('image')
+                <label for="file_upload" class="form-label">Inserisci Immagine</label>
+                <input type="file" class="form-control @error('file_upload') is-invalid @enderror" id="file_upload" name="file_upload"
+                    value="{{ old('file_upload') }}">
+                @error('file_upload')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
