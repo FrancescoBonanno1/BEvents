@@ -15,7 +15,7 @@
         @endif
     </div>
     <div class="row">
-        <form action="{{ route('admin.operators.update', $operator->id) }}" method="POST">
+        <form action="{{ route('admin.operators.update', $operator->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
            
@@ -36,12 +36,14 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="image" class="form-label">Inserisci Immagine</label>
-                <input type="text" class="form-control @error('image') is-invalid @enderror" id="image" name="image"
-                    value="{{ old('image', $operator->image) }}">
-                @error('image')
+                <label for="file_upload" class="form-label">Inserisci Immagine</label>
+                <input type="file" class="form-control @error('file_upload') is-invalid @enderror" id="file_upload" name="file_upload"
+                    value="{{ old('file_upload', $operator->file_upload) }}">
+                @error('file_upload')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
+                <input type="checkbox" id="not_file" name="not_file">
+                <label for="not_file">Nessuna immagine</label><br>
             </div>
             <div class="mb-3">
                 <label for="address" class="form-label">Inserisci Indirizzo</label>
