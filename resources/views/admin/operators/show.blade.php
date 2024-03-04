@@ -8,6 +8,9 @@
     <div class="row row-cols-2 row-cols-md-2 g-4 py-4">
         <div class="col-3">
             <div class="card">
+                @if (strlen($operator->file_path) > 0)
+                    <img src="http://127.0.0.1:8000/storage/{{ $operator->file_path }}" alt="">
+                @endif
                 <div class="card-header">{{ $operator->name }}</div>
                 <div class="card-body">
                     <p class="card-text">Telefono: {{ $operator->phone }}</p>

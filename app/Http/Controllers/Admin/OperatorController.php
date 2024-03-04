@@ -7,6 +7,7 @@ use App\Models\Operator;
 use App\Models\Specialization;
 use App\Http\Requests\StoreOperatorRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OperatorController extends Controller
 {
@@ -44,11 +45,31 @@ class OperatorController extends Controller
     
         // Se l'utente non ha un operatore associato, procedi con la creazione del nuovo operatore
         $validated = $request->validated();
+
+        $file = "";
+        $fileName = "";
+        $filePath = "";
+
+        if(isset($_FILES['file_upload']) && $_FILES["file_upload"]["size"] > 0){
+            $file = $request->file('file_upload');
+            $fileName = $file->getClientOriginalName();
+            $filePath = $file->store('uploads', 'public');
+        }
     
         // Creazione di un nuovo operatore associato all'utente corrente
+        $data = $request->all();
         $newOperator = new Operator();
-        $newOperator->fill($validated);
-        $user->operator()->save($newOperator);
+        $newOperator->user_id = Auth::user()->id;
+        $newOperator->name = $data["name"];
+        $newOperator->engagement_price = $data["engagement_price"];
+        $newOperator->description = $data["description"];
+        $newOperator->phone = $data["phone"];
+        $newOperator->filename = $fileName;
+        $newOperator->original_name = $fileName;
+        $newOperator->file_path = $filePath;
+        $newOperator->address = $data["address"];
+        $newOperator->foundation_year = $data["foundation_year"];
+        $newOperator->save();
     
         // Se sono state fornite delle specializzazioni, le associate all'operatore appena creato
         if ($request->has('specializations')) {
@@ -88,17 +109,56 @@ class OperatorController extends Controller
     }
 
 
-    public function update(Request $request, Operator $operator)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'name' => 'required|min:1|max:50',
             'engagement_price' => 'required|numeric|min:0',
             'description' => 'required|min:1|max:300',
             'phone' => 'required|min:1|max:50',
-            'image' => 'required|min:1|max:50',
+            "file_upload" => "mimes:jpg,png|max:2048",
             'address' => 'required|min:1|max:50',
             'foundation_year' => 'required',
         ]);
+
+        $operator = Operator::find($id);
+        $data = $request->all();
+
+        $file = "";
+        $fileName = "";
+        $filePath = "";
+
+        if(!(isset($data["not_file"]))){
+            if(strlen($operator->file_path) > 0){
+                unlink("storage/".$operator->file_path);
+            }
+
+            $file = $operator->filename;
+            $fileName = $operator->original_name;
+            $filePath = $operator->file_path;
+
+            if(isset($_FILES['file_upload']) && $_FILES["file_upload"]["size"] > 0){
+                $file = $request->file('file_upload');
+                $fileName = $file->getClientOriginalName();
+                $filePath = $file->store('uploads', 'public');
+            }
+        }else{
+            if(strlen($operator->file_path) > 0){
+                unlink("storage/".$operator->file_path);
+            }
+        }
+
+        $operator->user_id = Auth::user()->id;
+        $operator->name = $data["name"];
+        $operator->engagement_price = $data["engagement_price"];
+        $operator->description = $data["description"];
+        $operator->phone = $data["phone"];
+        $operator->filename = $fileName;
+        $operator->original_name = $fileName;
+        $operator->file_path = $filePath;
+        $operator->address = $data["address"];
+        $operator->foundation_year = $data["foundation_year"];
+        $operator->update();
 
         $operator->update($request->all());
 
@@ -110,6 +170,9 @@ class OperatorController extends Controller
 
     public function destroy(Operator $operator)
     {
+        if(strlen($operator->file_path) > 0){
+            unlink("storage/".$operator->file_path);
+        }
         $operator->delete();
 
         return redirect()->route('admin.operators.index')->with('success', 'Operatore eliminato con successo.');
