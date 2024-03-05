@@ -116,7 +116,7 @@ class OperatorController extends Controller
             'engagement_price' => 'required|numeric|min:0',
             'description' => 'required|min:1|max:300',
             'phone' => 'required|min:1|max:50',
-            "file_upload" => "mimes:jpg,png|max:2048",
+            "file_upload" => "mimes:jpg,png,jpeg|max:2048",
             'address' => 'required|min:1|max:50',
             'foundation_year' => 'required',
         ]);
