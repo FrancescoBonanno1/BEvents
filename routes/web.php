@@ -44,6 +44,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::put('/operators/{operator}', [AdminOperatorController::class, 'update'])->name('operators.update');
     Route::delete('/operators/{operator}', [AdminOperatorController::class, 'destroy'])->name('operators.destroy');
     Route::get('/operators/{operator}', [AdminOperatorController::class, 'show'])->name('operators.show');
+    Route::view('/error', 'admin.error')->name('error');
+
+
 
 });
 
