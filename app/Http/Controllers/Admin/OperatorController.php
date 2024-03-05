@@ -102,8 +102,14 @@ class OperatorController extends Controller
      */
     public function edit($id)
     {
+        $user = auth()->user();
         $operator = Operator::findOrFail($id);
-        $specializzations = Specialization::all(); 
+        $specializzations = Specialization::all();
+
+        // Verifica se l'utente autenticato sta modificando il suo operatore, se l'id non corrisponde a quello dell'utente loggato porta alla pagina d'errore
+        if ($user->operator->id !== $operator->id) {
+            return redirect()->route('admin.error'); 
+        }
 
         return view('admin.operators.edit', compact('operator', 'specializzations'));
     }
