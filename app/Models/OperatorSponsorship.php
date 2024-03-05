@@ -24,7 +24,7 @@ class OperatorSponsorship extends Model
             }
         });
     }*/
-    
+    protected $table = 'operator_sponsorship';
     public function sponsorship()
     {
         return $this->belongsToMany(Sponsorship::class)->using(OperatorSponsorship::class);
