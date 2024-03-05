@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Operator;
 use App\Models\OperatorSponsorship;
 use App\Models\Sponsorship;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -43,19 +44,18 @@ class OperatorSponsorshipSeeder extends Seeder
 
         date_default_timezone_set('Europe/Rome');
 
-        foreach($operators_sponsorships as $operator_sponsorship){
-            $new_operator_sponsorship = new OperatorSponsorship;
-            $new_operator_sponsorship->operator_id = $operator_sponsorship["operator_id"];
-            $new_operator_sponsorship->sponsorship_id = $operator_sponsorship["sponsorship_id"];
-            $new_operator_sponsorship->start_date = date("Y-m-d H:i:s");
-
-            $sponsorship = Sponsorship::find($operator_sponsorship["sponsorship_id"]);
+        for($i=0; $i<sizeof($operators_sponsorships); $i++){
+            $date = date("Y-m-d H:i:s");
+            $sponsorship = Sponsorship::find($operators_sponsorships[$i]["sponsorship_id"]);
             $duration = $sponsorship->duration;
-            $date = date_create(date("Y-m-d H:i:s"));
-            $result = date_add($date,date_interval_create_from_date_string($duration));
-            $new_operator_sponsorship->end_date = $result;
+            $object_date = date_create($date);
+            $result = date_add($object_date, date_interval_create_from_date_string($duration));
 
-            $new_operator_sponsorship->save();
+            $operator = Operator::find($operators_sponsorships[$i]["operator_id"]);
+            $operator->sponsorships()->attach($operators_sponsorships[$i]["sponsorship_id"], [
+                "start_date" => $date,
+                "end_date" => $result
+            ]);
         }
     }
 }

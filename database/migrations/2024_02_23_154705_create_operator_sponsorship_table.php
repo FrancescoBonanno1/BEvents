@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('operator_sponsorships', function (Blueprint $table) {
+        Schema::create('operator_sponsorship', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('operator_id');
@@ -39,12 +39,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('operator_sponsorships', function (Blueprint $table)
+        Schema::table('operator_sponsorship', function (Blueprint $table)
         {
-            $table->dropForeign('operator_sponsorships_sponsorship_id_foreign');
+            $table->dropForeign('operator_sponsorship_sponsorship_id_foreign');
             $table->dropColumn('sponsorship_id');
         });
-        Schema::dropIfExists('operator_sponsorships');
+        Schema::dropIfExists('operator_sponsorship');
     }
 };
 
