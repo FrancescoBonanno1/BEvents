@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Operator;
+use Faker\Factory as Faker;
 
 class OperatorSeeder extends Seeder
 {
@@ -13,6 +14,8 @@ class OperatorSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $faker = Faker::create();
         $operators = [
                 [
                     'user_id' => 1,
@@ -296,20 +299,22 @@ class OperatorSeeder extends Seeder
                 ],
             ];
 
-        foreach ($operators as $operator) {
-            $newoperator= new Operator;
-            $newoperator->user_id=$operator['user_id'];
-            $newoperator->name=$operator['name'];
-            $newoperator->engagement_price=$operator['engagement_price'];
-            $newoperator->description=$operator['description'];
-            $newoperator->phone=$operator['phone'];
-            $newoperator->filename = $operator["filename"];
-            $newoperator->original_name = $operator["original_name"];
-            $newoperator->file_path = $operator["file_path"];
-            $newoperator->address=$operator['address'];
-            $newoperator->foundation_year=$operator['foundation_year'];
+            foreach ($operators as $operator) {
+                $newoperator= new Operator;
+                $newoperator->user_id = $operator['user_id'];
+                $newoperator->name = $operator['name'];
+                $newoperator->engagement_price = $operator['engagement_price'];
+                $newoperator->description = $operator['description'];
+                $newoperator->phone = $operator['phone'];
+                $newoperator->filename = $operator["filename"];
+                $newoperator->original_name = $operator["original_name"];
+                $newoperator->file_path = $operator["file_path"];
+                $newoperator->address = $operator['address'];
+                $newoperator->foundation_year = $faker->dateTimeBetween('-50 years', 'now')->format('Y-m-d');
 
-            $newoperator->save();
-        }
+            
+                $newoperator->save();
+            }
+            
     }
     }
