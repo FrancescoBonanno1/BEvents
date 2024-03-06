@@ -25,6 +25,10 @@
                             <img class="img" src="../../img/specializzazioni/{{ $specialization->background_image }}" alt="img">
                         @endforeach
                     @endif
+                    @if($add_sponsorship == false)
+                        <p>Hai acquistato una sponsorizzazione di {{ $sponsorship[0]->duration }};</p>
+                        <p>La tua sponsorizzazione scadrà il {{ $end_sponsorship[0]->end_date }}</p>
+                    @endif
                 </div>
                 <div class="card-footer">
                    
