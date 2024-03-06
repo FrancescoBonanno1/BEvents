@@ -104,7 +104,19 @@
                     @enderror
                 </div>
             </div>
-            
+            @if($add_sponsorship == true)
+                <div class="mb-3">
+                    <label for="sponsorship">Inserisci sponsorizzazione</label>
+                    <select id="sponsorship" name="sponsorship">
+                        <option value="0">Nessuna sponsorizzazione</option>
+                        @for($i=0; $i<sizeof($sponsorships); $i++)
+                            <option value="{{ $sponsorships[$i]->id }}">{{ $sponsorships[$i]->duration }}</option>
+                        @endfor    
+                    </select>
+                </div>
+            @else
+                <div>La tua sponsorizzazione terminerà il: {{ $end_sponsorship[0]->end_date }}</div>
+            @endif
             <button type="submit" class="btn btn-primary">Salva Modifiche</button>
         </form>
     </div>
