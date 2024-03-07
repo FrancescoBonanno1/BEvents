@@ -5,8 +5,10 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OperatorController as AdminOperatorController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MyMessageController;
+use App\Http\Controllers\MyReviewController;
 use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\OperatorSponsorshipsController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,11 +52,15 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     Route::get("/my-messages/{operator_id}", [MyMessageController::class, "index"])->name("my-messages");
 
+    Route::get("/my-review/{operator_id}", [MyReviewController::class, "index"])->name("my-reviews");
+
 
 
 });
 
 Route::get("/message", [MessageController::class, "index"]);
+
+Route::get("/review", [ReviewController::class, "index"]);
 
 require __DIR__ . '/auth.php';
 

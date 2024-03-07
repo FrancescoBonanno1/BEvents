@@ -21,7 +21,7 @@ class MessageController extends Controller
             $new_message->author = $_GET["author"];
             $new_message->save();
         }
-        return redirect("http://localhost:5174/detail/" . $_GET["operator_id"]);
+        return redirect("http://localhost:5173/detail/" . $_GET["operator_id"]);
     }
 
     /**
