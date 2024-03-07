@@ -13,7 +13,16 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
+        if(isset($_GET["operator_id"]) && isset($_GET["vote_id"]) && isset($_GET["comment"]) && isset($_GET["author"]) && isset($_GET["user_email"])){
+            $new_review = new Review();
+            $new_review->operator_id = $_GET["operator_id"];
+            $new_review->vote_id = $_GET["vote_id"];
+            $new_review->comment = $_GET["comment"];
+            $new_review->author = $_GET["author"];
+            $new_review->user_email = $_GET["user_email"];
+            $new_review->save();
+        }
+        return redirect("http://localhost:5173/detail/" . $_GET["operator_id"]);
     }
 
     /**
