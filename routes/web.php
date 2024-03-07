@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OperatorController as AdminOperatorController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\MyMessageController;
 use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\OperatorSponsorshipsController;
 
@@ -46,6 +47,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::delete('/operators/{operator}', [AdminOperatorController::class, 'destroy'])->name('operators.destroy');
     Route::get('/operators/{operator}', [AdminOperatorController::class, 'show'])->name('operators.show');
     Route::view('/error', 'admin.error')->name('error');
+
+    Route::get("/my-messages/{operator_id}", [MyMessageController::class, "index"])->name("my-messages");
 
 
 
