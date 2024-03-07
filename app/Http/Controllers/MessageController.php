@@ -13,7 +13,15 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        if(isset($_GET["operator_id"]) && isset($_GET["text"]) && isset($_GET["user_email"]) && isset($_GET["author"])){
+            $new_message = new Message();
+            $new_message->operator_id = $_GET["operator_id"];
+            $new_message->Text = $_GET["text"];
+            $new_message->user_email = $_GET["user_email"];
+            $new_message->author = $_GET["author"];
+            $new_message->save();
+        }
+        return redirect("http://localhost:5174/detail/" . $_GET["operator_id"]);
     }
 
     /**
