@@ -30,6 +30,7 @@
                         <p>La tua sponsorizzazione scadrà il {{ $end_sponsorship[0]->end_date }}</p>
                     @endif
                     <a href="{{ route('admin.my-messages', $operator->id) }}">I miei messaggi</a>
+                    <a href="{{ route('admin.my-reviews', $operator->id) }}">Le mie recensioni</a>
                 </div>
                 <div class="card-footer">
                    

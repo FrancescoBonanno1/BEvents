@@ -10,7 +10,7 @@ class MyMessageController extends Controller
     public function index($operator_id){
         $messages = DB::table("messages")
         ->select("Text", "user_email", "author")
-        ->where("operator_id", "=", 1)
+        ->where("operator_id", "=", $operator_id)
         ->get();
         return view("admin.operators.myMessages", compact("messages"));
     }
