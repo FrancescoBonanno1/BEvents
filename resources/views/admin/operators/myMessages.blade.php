@@ -9,10 +9,10 @@
 <body>
     <header id="navbar">
         <img src="{{ asset('img/logoimg/HeavyPlanningLogo.jpg') }}" alt="img">
-        <a href="/"><i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Home</a>
+        <a id="ahome" href="/"><i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Home</a>
         @if(auth()->user()->operator)
-            <a href="{{ route('admin.operators.show', auth()->user()->operator->id) }}">
-                <i class="fa-solid fa-user fa-lg fa-fw"></i> mio Profilo 
+            <a id="aprofile" href="{{ route('admin.operators.show', auth()->user()->operator->id) }}">
+                <i class="fa-solid fa-user fa-lg fa-fw"></i>Account 
             </a>
         @else
             @if(!session('operatorAdded'))
@@ -55,6 +55,7 @@
     width: 100%;
     height: 20%;
     background-color: #090021;
+    position: relative;
 }
 #navbar img{
     width: 10%;
@@ -117,6 +118,34 @@ body{
 }
 *{
     font-family: sans-serif;
+}
+#ahome{
+    font-family: sans-serif;
+    color: #FD129E;
+    font-weight: bolder;
+    text-decoration: none;
+    padding-left: 1%;
+    position:absolute;
+    left: 15%;
+    bottom: 40%;
+    font-size: 1.5em;
+
+}
+#aprofile{
+    font-family: sans-serif;
+    color: #FD129E;
+    font-weight: bolder;
+    text-decoration: none;
+    padding-left: 1%;
+    position:absolute;
+    left: 30%;
+    bottom: 40%;
+    font-size: 1.5em;
+
+}
+#navbar a:hover {
+  color: #F6FB01;
+  transition: 250ms;
 }
 </style>
 </html>
