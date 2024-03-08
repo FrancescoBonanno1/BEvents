@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\OperatorController as AdminOperatorController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MyMessageController;
 use App\Http\Controllers\MyReviewController;
+use App\Http\Controllers\MyStatisticsController;
 use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\OperatorSponsorshipController;
 use App\Http\Controllers\OperatorSponsorshipsController;
@@ -57,6 +58,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     Route::get("/operator-sponsorship/create/{operator_id}", [OperatorSponsorshipController::class, "create"])->name("operator-sponsorship.create");
     Route::post("/operator-sponsorship/store/{operator_id}", [OperatorSponsorshipController::class, "store"])->name("operator-sponsorship.store");
+
+    Route::get("/my-statistics/{operator_id}", [MyStatisticsController::class, "index"])->name("my-statistics");
+    Route::get("/my-statistics-message/{operator_id}", [MyStatisticsController::class, "message"])->name("my-statistics-message");
 
 
 
