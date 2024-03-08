@@ -7,6 +7,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MyMessageController;
 use App\Http\Controllers\MyReviewController;
 use App\Http\Controllers\OperatorController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\OperatorSponsorshipController;
 use App\Http\Controllers\OperatorSponsorshipsController;
 use App\Http\Controllers\ReviewController;
@@ -25,6 +26,15 @@ use App\Http\Controllers\ReviewController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/pay', function () {
+    return view('payment_form');
+});
+
+Route::get('/checkout', [PaymentController::class, 'showPaymentPage'])->name('checkout');
+Route::get('/payment-form', [PaymentController::class, 'showPaymentPage'])->name('payment-form.show');
+Route::get('/client-token', [PaymentController::class, 'getClientToken']);
+Route::post('/process-payment', [PaymentController::class, 'processPayment'])->name('process-payment');
 
 Route::get('/dashboard', [OperatorController::class, 'index'])->name('dashboard');
 
