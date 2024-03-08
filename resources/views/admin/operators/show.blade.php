@@ -29,8 +29,19 @@
                         <p>Hai acquistato una sponsorizzazione di {{ $sponsorship[0]->duration }};</p>
                         <p>La tua sponsorizzazione scadrà il {{ $end_sponsorship[0]->end_date }}</p>
                     @endif
-                    <a href="{{ route('admin.my-messages', $operator->id) }}">I miei messaggi</a>
-                    <a href="{{ route('admin.my-reviews', $operator->id) }}">Le mie recensioni</a>
+                    <div>
+                        <a href="{{ route('admin.my-messages', $operator->id) }}">I miei messaggi</a>
+                    </div>
+                    <div>
+                        <a href="{{ route('admin.my-reviews', $operator->id) }}">Le mie recensioni</a>
+                    </div>
+                    <div>
+                        @if($add_sponsorship == true)
+                            <a href="{{ route('admin.operator-sponsorship.create', $operator->id) }}">Aggiungi sponsorizzazione</a>
+                        @else
+                            <p>La tua sponsorizzazione terminerà il: {{ $end_sponsorship[0]->end_date }}</p>
+                        @endif
+                    </div>
                 </div>
                 <div class="card-footer">
                    

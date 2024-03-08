@@ -7,6 +7,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MyMessageController;
 use App\Http\Controllers\MyReviewController;
 use App\Http\Controllers\OperatorController;
+use App\Http\Controllers\OperatorSponsorshipController;
 use App\Http\Controllers\OperatorSponsorshipsController;
 use App\Http\Controllers\ReviewController;
 
@@ -53,6 +54,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::get("/my-messages/{operator_id}", [MyMessageController::class, "index"])->name("my-messages");
 
     Route::get("/my-review/{operator_id}", [MyReviewController::class, "index"])->name("my-reviews");
+
+    Route::get("/operator-sponsorship/create/{operator_id}", [OperatorSponsorshipController::class, "create"])->name("operator-sponsorship.create");
+    Route::post("/operator-sponsorship/store/{operator_id}", [OperatorSponsorshipController::class, "store"])->name("operator-sponsorship.store");
 
 
 
