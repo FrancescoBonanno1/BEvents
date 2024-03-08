@@ -29,8 +29,8 @@ class OperatorController extends Controller
     {
         $operators = Operator::all();
         $specializzations = Specialization::all();
-        $sponsorships = Sponsorship::all();
-        return view('admin.operators.create', compact('operators', 'specializzations', "sponsorships"));
+        /*$sponsorships = Sponsorship::all();*/
+        return view('admin.operators.create', compact('operators', 'specializzations', /*"sponsorships"*/));
     }
 
 
@@ -81,7 +81,7 @@ class OperatorController extends Controller
             $newOperator->specializations()->attach($request->input('specializations'));
         }
 
-        if($data["sponsorship"] != 0){
+        /*if($data["sponsorship"] != 0){
             $date = date("Y-m-d H:i:s");
             $sponsorship = Sponsorship::find($data["sponsorship"]);
             $duration = $sponsorship->duration;
@@ -91,7 +91,7 @@ class OperatorController extends Controller
                 "start_date" => $date,
                 "end_date" => $result
             ]);
-        }
+        }*/
     
         return redirect()->route("admin.operators.index")->with('success', 'Operatore creato con successo.');
     }
@@ -159,7 +159,7 @@ class OperatorController extends Controller
             return redirect()->route('admin.error'); 
         }
 
-        $date = date("Y-m-d H:i:s");
+        /*$date = date("Y-m-d H:i:s");
 
         $how_much_operator_sponsorship = DB::table("operator_sponsorship")
         ->where("operator_id", "=", $id)
@@ -177,9 +177,9 @@ class OperatorController extends Controller
             ->where("operator_id", "=", $id)
             ->where("end_date", ">", $date)
             ->get();
-        }
+        }*/
 
-        return view('admin.operators.edit', compact('operator', 'specializzations', "add_sponsorship", "sponsorships", "end_sponsorship"));
+    return view('admin.operators.edit', compact('operator', 'specializzations'/*, "add_sponsorship", "sponsorships", "end_sponsorship"*/));
     }
 
 
@@ -239,7 +239,7 @@ class OperatorController extends Controller
        
         $operator->specializations()->sync($request->input('specializations', []));
 
-        if($data["sponsorship"] != 0){
+        /*if($data["sponsorship"] != 0){
             $date = date("Y-m-d H:i:s");
             $sponsorship = Sponsorship::find($data["sponsorship"]);
             $duration = $sponsorship->duration;
@@ -249,7 +249,7 @@ class OperatorController extends Controller
                 "start_date" => $date,
                 "end_date" => $result
             ]);
-        }
+        }*/
 
         return redirect()->route('admin.operators.show', $operator)->with('success', 'Operatore aggiornato con successo.');
     }
