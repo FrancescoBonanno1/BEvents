@@ -61,6 +61,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     Route::get("/my-statistics/{operator_id}", [MyStatisticsController::class, "index"])->name("my-statistics");
     Route::get("/my-statistics-message/{operator_id}", [MyStatisticsController::class, "message"])->name("my-statistics-message");
+    Route::get("/my-statistics-review/{operator_id}", [MyStatisticsController:: class, "review"])->name("my-statistics-review");
 
 
 
