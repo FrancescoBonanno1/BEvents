@@ -16,7 +16,7 @@
             <ul>
                 <li>
                     <h3>
-                        Kristian Filiposki:
+                        Kristian Filiposki: 
                     </h3>
                     <div>
                         <a href="https://github.com/kristianfiliposki">GitHub</a>
@@ -26,7 +26,7 @@
                 </li>
                 <li>
                     <h3>
-                       Lorenzo Monteforte
+                       Lorenzo Monteforte 
                     </h3>
                     <div>
                         <a href="https://github.com/LorenzoMonteforte">GitHub</a>
@@ -36,7 +36,7 @@
                 </li>
                 <li>
                     <h3>
-                        Marco Percolla
+                        Marco Percolla 
                     </h3>
                     <div>
                         <a href="https://github.com/MarcoPercolla">GitHub</a>
@@ -46,13 +46,23 @@
                 </li>
                 <li>
                     <h3>
-                       Riccardo Rocco
+                       Riccardo Rocco 
                     </h3>
                     <div>
                         <a href="https://github.com/Riccardo-Rocco">GitHub</a>
                         <a href="https://www.linkedin.com/in/riccardo-rocco-497251200/">Linkedin</a>
                     </div>
                 </li>
+                <li>
+                    <h3>
+                       Fracesco Bonnano 
+                    </h3>
+                    <div>
+                        <a href="https://github.com/FrancescoBonanno1">GitHub</a>
+                        <a href="https://www.linkedin.com/in/francesco-bonanno-78aa692b9/">Linkedin</a>
+                    </div>
+                </li>
+                
                 
             </ul>
         </div>
