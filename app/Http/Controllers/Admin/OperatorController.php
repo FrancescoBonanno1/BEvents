@@ -18,8 +18,7 @@ class OperatorController extends Controller
      */
     public function index()
     {
-        $operators = Operator::all();
-        return view('admin.operators.index', compact('operators'));
+        return view('admin.dashboard');
     }
 
     /**
