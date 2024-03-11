@@ -31,7 +31,7 @@
                 <header id="navbar">
                     <img src="{{ asset('img/logoimg/HeavyPlanningLogo.jpg') }}" alt="img">
                     <a href="/"><i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Home</a>
-                    <a href="{{ route('admin.operators.index') }}"><i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Homepage</a>
+                    <a href="{{ route('admin.operators.index') }}"><i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i>Dashboard</a>
                     @if(auth()->user()->operator)
                         <a href="{{ route('admin.operators.show', auth()->user()->operator->id) }}">
                             <i class="fa-solid fa-user fa-lg fa-fw"></i> mio Profilo 
