@@ -13,7 +13,6 @@
         <div class="mb-3">
             <label for="sponsorship">Inserisci sponsorizzazione</label>
             <select id="sponsorship" name="sponsorship">
-                <option value="0">Nessuna sponsorizzazione</option>
                 @for($i=0; $i<sizeof($sponsorships); $i++)
                     <option value="{{ $sponsorships[$i]->id }}">{{ $sponsorships[$i]->duration }}</option>
                 @endfor    
