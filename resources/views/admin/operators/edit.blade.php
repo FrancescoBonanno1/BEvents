@@ -39,7 +39,12 @@
             </div>
             
             <div class="mb-3">
-                <label for="file_upload" class="form-label">Inserisci Immagine</label>
+                @if($operator->file_path == "")
+                    <label for="file_upload" class="form-label">Inserisci Immagine</label>
+                @else
+                    <label for="file_upload" class="form-label">Modifica immagine</label>
+                    <img id="preview" class="mb-3" src="http://127.0.0.1:8000/storage/{{ $operator->file_path }}" alt="">
+                @endif
                 <input type="file" class="form-control @error('file_upload') is-invalid @enderror" id="file_upload" name="file_upload"
                     value="{{ old('file_upload', $operator->file_upload) }}">
                 @error('file_upload')
