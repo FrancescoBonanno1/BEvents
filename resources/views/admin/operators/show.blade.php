@@ -42,6 +42,9 @@
                             <p>La tua sponsorizzazione terminerà il: {{ $end_sponsorship[0]->end_date }}</p>
                         @endif
                     </div>
+                    <div>
+                        <a href="{{ route('admin.my-statistics', $operator->id) }}">Statistiche</a>
+                    </div>
                 </div>
                 <div class="card-footer">
                    
