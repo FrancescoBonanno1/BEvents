@@ -9,10 +9,9 @@
             Welcome to Heavy Planning
         </h1>
 
-        <p class="col-md-8 fs-4">This a project,which was made by Kristian filiposki,Lorenzo Monteforte,Marco Percolla,Riccardo Rocco e Francesco Bonnanno</p>
+        <p class="col-md-8 fs-4">This is a project,made made by Kristian filiposki, Lorenzo Monteforte, Marco Percolla, Riccardo Rocco e Francesco Bonnanno.</p>
         <div>
-            <h3>Andate a vedere gli altri progetti dei nostri eroi!</h3>
-            <h4>Linkedin</h4>
+            <h3>Go and see the other projects made by our heroes!</h3>
             <ul>
                 <li>
                     <h3>
